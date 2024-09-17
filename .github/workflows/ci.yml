@@ -12,13 +12,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      xvfb:
-        image: 'circleci/xvfb:latest'
-        options: --privileged
-        ports:
-          - "5901:5901"
-
     steps:
       - uses: actions/checkout@v2
 
