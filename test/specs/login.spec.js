@@ -10,10 +10,18 @@ test.describe("Login", () => {
     await page.goto("https://www.redmine.org/login");
   });
 
-  test("should login successfully", async ({ page }) => {
+  test("TC01, The user should login successfully", async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login(username, password);
     await expect(page.locator("a.logout")).toHaveText("Sign out");
+  });
+
+  test("TC02, The user should not be able to sign in with no username", async ({
+    page,
+  }) => {
+    const loginPage = new LoginPage(page);
+    await loginPage.loginWithNoUsername(password);
+    await expect(page.locator('[id="flash_error"]')).toHaveText(errorMessage);
   });
 
   test("TC03, The user should not be able to sign in with no password", async ({

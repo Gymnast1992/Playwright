@@ -23,6 +23,11 @@ class LoginPage {
     await this.btnLogin.click();
   }
 
+  async loginWithNoUsername(password) {
+    await this.inputPassword.fill(password);
+    await this.btnLogin.click();
+  }
+
   async signOut() {
     await this.btnSignOut.click();
   }
