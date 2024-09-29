@@ -1,8 +1,8 @@
 // class RegisterAccount{
 //     constructor(page) {
 //       this.page = page;
-//       this.loginInput = this.page.locator("#user_login");
-//       this.passwordInput = this.page.locator("#user_password");
+//       this.loginInput = this.page.locator('[id="user_login"]');
+//       this.passwordInput = this.page.locator('[id="user_password"]');
 //       this.confirmPasswordInput = this.page.locator("#user_password_confirmation");
 //       this.firstNameInput = this.page.locator("#user_firstname");
 //       this.lastNameInput = this.page.locator("#user_lastname");
