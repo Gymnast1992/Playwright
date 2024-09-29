@@ -3,16 +3,37 @@
   "version": "1.0.0",
   "description": "5 Test Cases",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "scripts": {
+    "clean": "rimraf allure-results && rimraf allure-report && rimraf test-results && rimraf playwright-report && rimraf junit-results",
+    "play-report": "npx playwright show-report",
+    "allure-report": "allure generate ./allure-results --clean",
+    "open-report": "npm run allure-report && allure open ./allure-report",
+    "firefox": "npm run clean && npx playwright test --project=firefox",
+    "chromium": "npx playwright test --project=chromium",
+    "webkit": "npx playwright test --project=webkit",
+    "test": "npm run clean && npx playwright test --project=chromium",
+    "test-head": "npm run clean && npx playwright test --headed",
+    "reinstall": "npx playwright install",
+    "install-deps": "npx playwright install-deps"
+  },
+
+  "keywords": [
+    "playwright",
+    "playwright-test",
+    "allure report",
+    "web test automation"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.47.1",
-    "@types/node": "^22.5.5",
-    "allure-playwright": "^3.0.0"
+    "@playwright/test": "^1.30.0",
+    "allure-commandline": "^2.20.1",
+    "allure-playwright": "^2.0.0-beta.24",
+    "playwright": "^1.30.0"
   },
   "dependencies": {
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "dotenv": "^16.0.3",
+    "rimraf": "^4.1.2"
   }
 }
